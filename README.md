@@ -196,7 +196,7 @@ The backend provides the following RESTful API endpoints:
 
 ## Contributors
 
-- [Your Name](https://github.com/yourusername)
+- [INDU SHEKHAR JHA](https://github.com/indu-shekhar)
 
 ## License
 
