@@ -9,7 +9,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://super-succotash-566wrq7jr5g37v9-4200.app.github.dev'
+}));
 app.use(express.json());
 
 // Routes

@@ -24,6 +24,17 @@ router.post('/', async (req, res) => {
   }
 });
 
+// GET /person/:id - Get a single person by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const person = await Person.findById(req.params.id);
+    if (!person) return res.status(404).json({ error: 'Person not found' });
+    res.json(person);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 // PUT /person/:id - Update a person
 router.put('/:id', async (req, res) => {
   try {
