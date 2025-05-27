@@ -1,0 +1,39 @@
+.table-container {
+  overflow: auto;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 32px;
+  color: #666;
+}
+
+.empty-state mat-icon {
+  font-size: 64px;
+  height: 64px;
+  width: 64px;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.error-message {
+  color: #f44336;
+  margin: 16px 0;
+}
+
+.error-message mat-icon {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.loading-spinner {
+  padding: 32px;
+}
+
+.person-row {
+  transition: background-color 0.3s ease;
+}
+
+.person-row:hover {
+  background-color: rgba(63, 81, 181, 0.1);
+}

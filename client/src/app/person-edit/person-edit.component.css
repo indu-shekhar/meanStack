@@ -1,0 +1,19 @@
+.error-message {
+  color: #f44336;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.error-message mat-icon {
+  margin-right: 8px;
+}
+
+.loading-spinner {
+  padding: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

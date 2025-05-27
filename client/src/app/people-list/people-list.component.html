@@ -1,26 +1,79 @@
-<h2>People List</h2>
-<a routerLink="/add">Add Person</a>
-<div *ngIf="error" class="error">{{ error }}</div>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Mobile</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let person of people">
-      <td>{{ person.name }}</td>
-      <td>{{ person.age }}</td>
-      <td>{{ person.gender }}</td>
-      <td>{{ person.mobile }}</td>
-      <td>
-        <button (click)="editPerson(person._id)">Edit</button>
-        <button (click)="deletePerson(person._id)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="animate-item">
+  <h1 class="page-title">People List</h1>
+
+  <div *ngIf="isLoading" class="center loading-spinner">
+    <mat-spinner diameter="50"></mat-spinner>
+  </div>
+  
+  <div *ngIf="error" class="error-message animate-item">
+    <mat-card>
+      <mat-card-content>
+        <mat-icon color="warn">error</mat-icon>
+        {{ error }}
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div *ngIf="!isLoading && !error" class="animate-item">
+    <mat-card>
+      <mat-card-content>
+        <div class="table-container">
+          <div *ngIf="people.length === 0" class="empty-state">
+            <mat-icon>sentiment_dissatisfied</mat-icon>
+            <p>No people found</p>
+            <button mat-raised-button color="primary" routerLink="/add">
+              <mat-icon>person_add</mat-icon> Add Person
+            </button>
+          </div>
+          
+          <table mat-table [dataSource]="people" class="person-table" *ngIf="people.length > 0">
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let person">{{ person.name }}</td>
+            </ng-container>
+            
+            <!-- Age Column -->
+            <ng-container matColumnDef="age">
+              <th mat-header-cell *matHeaderCellDef>Age</th>
+              <td mat-cell *matCellDef="let person">{{ person.age }}</td>
+            </ng-container>
+            
+            <!-- Gender Column -->
+            <ng-container matColumnDef="gender">
+              <th mat-header-cell *matHeaderCellDef>Gender</th>
+              <td mat-cell *matCellDef="let person">{{ person.gender }}</td>
+            </ng-container>
+            
+            <!-- Mobile Column -->
+            <ng-container matColumnDef="mobile">
+              <th mat-header-cell *matHeaderCellDef>Mobile</th>
+              <td mat-cell *matCellDef="let person">{{ person.mobile }}</td>
+            </ng-container>
+            
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let person" class="actions-cell">
+                <button mat-icon-button color="primary" (click)="editPerson(person._id)" matTooltip="Edit">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deletePerson(person._id)" matTooltip="Delete">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="person-row"></tr>
+          </table>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/add">
+          <mat-icon>person_add</mat-icon> Add Person
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
