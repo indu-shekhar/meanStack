@@ -1,6 +1,6 @@
 # MEAN Stack People Manager
 
-![People Manager Banner](media/banner.jpg)
+![People Manager Banner](media/banner.png)
 
 A full-stack web application that manages a list of people using the MEAN stack (MongoDB, Express.js, Angular, and Node.js). The application provides a beautiful and responsive user interface using Angular Material, with features for creating, reading, updating, and deleting person records.
 
@@ -29,19 +29,19 @@ A full-stack web application that manages a list of people using the MEAN stack 
 ## Screenshots
 
 ### People List View
-![People List View](media/list.jpg)
+![People List View](media/list.png)
 *The main dashboard displaying all people records in a Material table*
 
 ### Add Person
-![Add Person Form](media/add.jpg)
+![Add Person Form](media/add.png)
 *Form for adding a new person with validation*
 
 ### Edit Person
-![Edit Person Form](media/edit.jpg)
+![Edit Person Form](media/edit.png)
 *Form for editing an existing person's details*
 
 ### Delete Person
-![Delete Person Confirmation](media/delete.jpg)
+![Delete Person Confirmation](media/delete.png)
 *Confirmation dialog before deleting a person*
 
 ## Tech Stack
