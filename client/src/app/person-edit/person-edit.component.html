@@ -1,0 +1,10 @@
+<h2>Edit Person</h2>
+<form (ngSubmit)="updatePerson()">
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <label>Name: <input [(ngModel)]="person.name" name="name" required></label><br>
+  <label>Age: <input type="number" [(ngModel)]="person.age" name="age" required></label><br>
+  <label>Gender: <input [(ngModel)]="person.gender" name="gender" required></label><br>
+  <label>Mobile: <input [(ngModel)]="person.mobile" name="mobile" required></label><br>
+  <button type="submit">Update</button>
+  <a routerLink="/">Cancel</a>
+</form>

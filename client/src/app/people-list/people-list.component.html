@@ -1,0 +1,26 @@
+<h2>People List</h2>
+<a routerLink="/add">Add Person</a>
+<div *ngIf="error" class="error">{{ error }}</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Mobile</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people">
+      <td>{{ person.name }}</td>
+      <td>{{ person.age }}</td>
+      <td>{{ person.gender }}</td>
+      <td>{{ person.mobile }}</td>
+      <td>
+        <button (click)="editPerson(person._id)">Edit</button>
+        <button (click)="deletePerson(person._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
