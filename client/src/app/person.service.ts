@@ -14,7 +14,7 @@ export interface Person {
   providedIn: 'root'
 })
 export class PersonService {
-  private apiUrl = 'http://localhost:3000/person';
+  private apiUrl = 'https://super-succotash-566wrq7jr5g37v9-3000.app.github.dev/person';
 
   constructor(private http: HttpClient) {}
 
