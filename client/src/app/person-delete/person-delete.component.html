@@ -1,7 +1,53 @@
-<h2>Delete Person</h2>
-<div *ngIf="error" class="error">{{ error }}</div>
-<div *ngIf="person">
-  <p>Are you sure you want to delete <strong>{{ person.name }}</strong>?</p>
-  <button (click)="deletePerson()">Yes, Delete</button>
-  <a routerLink="/">Cancel</a>
+<div class="animate-item">
+  <h1 class="page-title">Delete Person</h1>
+  
+  <div *ngIf="isLoading" class="center loading-spinner">
+    <mat-spinner diameter="50"></mat-spinner>
+  </div>
+
+  <mat-card class="delete-card" *ngIf="!isLoading && person">
+    <mat-card-header>
+      <mat-icon mat-card-avatar color="warn">warning</mat-icon>
+      <mat-card-title>Confirm Deletion</mat-card-title>
+      <mat-card-subtitle>This action cannot be undone</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div *ngIf="error" class="error-message">
+        <mat-icon color="warn">error</mat-icon> {{ error }}
+      </div>
+      
+      <div class="person-details">
+        <h3>Person Information:</h3>
+        <div class="detail-row">
+          <mat-icon color="primary">person</mat-icon>
+          <span><strong>Name:</strong> {{ person.name }}</span>
+        </div>
+        <div class="detail-row">
+          <mat-icon color="primary">cake</mat-icon>
+          <span><strong>Age:</strong> {{ person.age }}</span>
+        </div>
+        <div class="detail-row">
+          <mat-icon color="primary">wc</mat-icon>
+          <span><strong>Gender:</strong> {{ person.gender }}</span>
+        </div>
+        <div class="detail-row">
+          <mat-icon color="primary">phone</mat-icon>
+          <span><strong>Mobile:</strong> {{ person.mobile }}</span>
+        </div>
+      </div>
+      
+      <div class="warning-message">
+        <mat-icon color="warn">delete_forever</mat-icon>
+        <span>Are you sure you want to delete this person?</span>
+      </div>
+    </mat-card-content>
+    
+    <mat-card-actions align="end">
+      <button mat-button routerLink="/" type="button">Cancel</button>
+      <button mat-raised-button color="warn" (click)="deletePerson()">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>

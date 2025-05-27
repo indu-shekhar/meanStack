@@ -1,0 +1,20 @@
+.error-message {
+  color: #f44336;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.error-message mat-icon {
+  margin-right: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
